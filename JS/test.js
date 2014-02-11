@@ -1,20 +1,23 @@
 //Example JS
 instructionList = Array();
 NumArray = Array();
-
+myActualList = Array();
+var printVar = 1;
 main();
 
 function main (){
     document.write("<p>" + new Date() + "</p>");
-    list = start(10,20);
+    list = start(50,20);
     document.write("<h1>Original</h1>");
     print(list);
     
     insertionSort(getNums("Numbers"),instructionList);
 
-    document.write("<h1>instructionList</h1>")
+    document.write("<h1>Order of Swaps!</h1>")
     print(instructionList);
-    setInterval(replace,1000);
+
+    myActualList = document.getElementsByClassName("Numbers");
+    setInterval(replace,50);
 }
 
 function start (size,max) {
@@ -42,9 +45,9 @@ function print (myList) {
 function insertionSort (myList, instructionList) {
     var temp;
     var iter;
-
     for (var i = 0; i < myList.length; i++) {
         temp = myList[i];
+        
         for(iter = i; iter > 0 && myList[iter-1] > temp; iter--){
             myList[iter] = myList[iter-1];
             
@@ -52,42 +55,45 @@ function insertionSort (myList, instructionList) {
             instructionList[instructionList.length] = iter -1;
         }
         myList[iter] = temp;
-        
-        //instructionList[instructionList.length] = iter;
-        //instructionList[instructionList.length] = i;
-        
     }
+    NumArray = getNums("Numbers");
 }
 
 function getNums (identifier) {
     myList = document.getElementsByClassName(identifier);
-    //NumArray = new Array(myList.length);
-
     for (var i = 0; i < myList.length; i++) {
         NumArray[i] = Number(myList[i].innerHTML);
     }
     return NumArray;
 }
 
-function reprint (identifier, NumArray){
-    myList = document.getElementsByClassName(identifier);
-    for (var i = 0; i < myList.length; i++) {
-        myList[i].innerHTML = NumArray[i];
-    }
-}
-
 function replace(){
+    //stop if done
     if (instructionList.length == 0){
         return;
     }
 
-    myList = document.getElementsByClassName("Numbers");
+    //grey out previously selected
+    old = document.getElementsByClassName("swapping");
+    for (var i = 0; i < old.length; i++) {
+        old[i].className = "prev";
+    }
+    old = document.getElementsByClassName("selected");
+    for (var i = 0; i < old.length; i++) {
+        old[i].className = "prev";
+    }
+
+    //find swap indexes from instruction list
     var indx1 = instructionList.shift();
     var indx2 = instructionList.shift();
 
-    console.log(indx1 + " " + indx2);
 
-    myList[indx1].innerHTML = "<b>" + NumArray[indx1] + "</b>";
-    myList[indx2].innerHTML = "<u>" + NumArray[indx2] + "</u>";
-
+    //make swap visible
+    myActualList[indx1].innerHTML = "<li class = swapping >" + NumArray[indx2] + "</li>";
+    myActualList[indx2].innerHTML = "<li class = selected >" + NumArray[indx1] + "</li>";
+ 
+    //swap num array elements
+    var temp = NumArray[indx1];
+    NumArray[indx1] = NumArray[indx2];
+    NumArray[indx2] = temp;
 }

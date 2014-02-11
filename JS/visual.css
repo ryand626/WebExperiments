@@ -1,0 +1,14 @@
+.prev{
+	background-color: rgb(200,200,200);
+	color: black;
+}
+
+.selected{
+	background-color: rgb(200,255,200);
+	color: black;
+}
+
+.swapping{
+	background-color: rgb(200,200,200);
+	color: black;
+}
