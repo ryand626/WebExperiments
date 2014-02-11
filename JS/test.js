@@ -5,9 +5,11 @@ myActualList = Array();
 main();
 
 function main (){
-    document.write("<p>" + new Date() + "</p>");
+    //document.write("<p>" + new Date() + "</p>");
+    document.write("<div class = sep>");
     list = start(20,20);
-    document.write("<h1>Original</h1>");
+    document.write("<h1>Original Unsorted List</h1>");
+    
     print(list);
     
     insertionSort(getNums("Numbers"),instructionList);
@@ -15,8 +17,10 @@ function main (){
     document.write("<h1>Order of Swaps!</h1>")
     print(instructionList);
 
+    document.write("</div>");
     myActualList = document.getElementsByClassName("Numbers");
     setInterval(replace,50);
+
 }
 
 function start (size,max) {
@@ -24,7 +28,7 @@ function start (size,max) {
     for (var i = 0; i < size; i++) {
         myList[i] = Math.floor(Math.random()*max);
     }
-    document.write("<h1>insertionSort</h1>");
+    document.write("<h1>Insertion Sort</h1>");
     document.write("<ul>");
     for (var i = 0; i < myList.length; i++) {
         document.write("<li class = Numbers>" + myList[i] + "</li>");
