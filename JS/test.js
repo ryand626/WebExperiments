@@ -2,7 +2,9 @@
 ISinstructionList = Array();
 NumArray = Array();
 myActualList = Array();
+var whichTime = 0;
 main();
+
 
 function main (){
     document.write("<div>");
@@ -29,10 +31,6 @@ function main (){
             document.write("<h1>Sorted List</h1>");
             print(MS);
 
-            list = [1,3,5,7,9,11,2,4,6,8,10,12];
-            print(list);
-            Merge(list, 0,5,11);
-            print(list);
         document.write("</div>");
     document.write("</div>");
 
@@ -116,63 +114,40 @@ function ISreplace(){
 }
 
 
-//Merge Sort
-function MergeSort(myList,start,end){
-    // if (myList.length === 1){
-    //     return myList;
-    // }
-
-    // console.log("myList: " + myList.toString());
-
-    // var A1 = Array();
-    // var A2 = Array();
-
-    // for (var i = 0; i < myList.length / 2; i++) {
-    //     A1[i] = myList[i];
-    //     A2[i] = myList[i + myList.length / 2];
-    // }
-    // console.log("A1: " + A1.toString());
-    // console.log("A2: " + A2.toString());
-   
-    // A1 = MergeSort(A1);
-    // A2 = MergeSort(A2);
-
+// Merge Sort
+function MergeSort(mSortList,start,end){
     if(start < end){
-        var mid = Math.floor(((start + end + 1) / 2));
-        console.log("DIMENTIONS: " + start + " " + mid + " " + end);
-        MergeSort(myList, start, mid - 1);
-        MergeSort(myList, mid, end);
-        myList = Merge(myList, start, mid - 1, end);
+        var mid = Math.floor(((start + end) / 2));
+
+        MergeSort(mSortList, start, mid);   
+        MergeSort(mSortList, mid + 1, end);
+        Merge(mSortList, start, mid, end);
     }
 }
-//Array, begin, end, end2
+
+// Start:   Zero indexed starting point
+// mid:     last element of A1
+// mid + 1: start of A2
+// end:     last element of A2
 function Merge(myList, start, mid, end){
     var len1 = mid - start + 1;
     var len2 = end - mid;
-
-    console.log("Lengths: " + len1 + " " + len2);
-
     var A1 = Array();
     var A2 = Array();
 
     for (var i = 0; i < len1; i++) {
-        A1[i] = myList[i]; 
+        A1[i] = myList[i + start]; 
     }
     for (var i = 0; i < len2; i++) {
         A2[i] = myList[i + mid + 1]; 
     }
     A1.push(Infinity);
     A2.push(Infinity);
-    console.log("A1: " + A1.toString());
-    console.log("A2: " + A2.toString());
 
-    //var len = A1.length + A2.length;
-    //var merged = Array();
     var iter1 = 0;
     var iter2 = 0;
 
-    for (var i = start; i < end; i++) {
-        console.log(A1[iter1] + " " + A2[iter2]);
+    for (var i = start; i <= end; i++) {
         if (A1[iter1] < A2[iter2]) {
             myList[i] = A1[iter1];
             iter1++;
@@ -181,9 +156,5 @@ function Merge(myList, start, mid, end){
             myList[i] = A2[iter2];
             iter2++;
         }
-        console.log("looping: " + i)
     }
-    console.log("MERGED Complete: " + myList.toString());
-    //return merged;
-    return myList;
 }
