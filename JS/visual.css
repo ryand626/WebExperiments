@@ -1,6 +1,7 @@
 
 
 body{
+	background-color: rgb(200,225,255);
 	font-family: "Calibri";
 	font-size: 20px;
 }
@@ -15,7 +16,9 @@ h1{
 
 }
 .sep{
+	height: 100%;
 	width: 50%;
+	float: left;
 }
 
 
