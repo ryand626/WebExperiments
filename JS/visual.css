@@ -5,12 +5,13 @@
 }
 
 .prev{
-	background-color: rgb(200,200,200);
+	background-color: rgb(0,0,0);
 	padding-left: 10px;
+	color: white;
 }
 
 .selected{
-	background-color: rgb(200,255,200);
+	background-color: rgb(205,190,100);
 	padding-left: 5px;
 	color: black;
 

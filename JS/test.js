@@ -6,7 +6,7 @@ main();
 
 function main (){
     document.write("<p>" + new Date() + "</p>");
-    list = start(50,20);
+    list = start(20,20);
     document.write("<h1>Original</h1>");
     print(list);
     
