@@ -29,9 +29,9 @@ function main (){
             document.write("<h1>Sorted List</h1>");
             print(MS);
 
-            list = [1,3,5,2,4,6];
+            list = [1,3,5,7,9,11,2,4,6,8,10,12];
             print(list);
-            Merge(list, 0,2,5);
+            Merge(list, 0,5,11);
             print(list);
         document.write("</div>");
     document.write("</div>");
@@ -138,10 +138,11 @@ function MergeSort(myList,start,end){
     // A2 = MergeSort(A2);
 
     if(start < end){
-        var mid = Math.floor((start + end) / 2);
+        var mid = Math.floor(((start + end + 1) / 2));
+        console.log("DIMENTIONS: " + start + " " + mid + " " + end);
         MergeSort(myList, start, mid - 1);
         MergeSort(myList, mid, end);
-        Merge(myList, start, mid - 1, end);
+        myList = Merge(myList, start, mid - 1, end);
     }
 }
 //Array, begin, end, end2
@@ -184,4 +185,5 @@ function Merge(myList, start, mid, end){
     }
     console.log("MERGED Complete: " + myList.toString());
     //return merged;
+    return myList;
 }
