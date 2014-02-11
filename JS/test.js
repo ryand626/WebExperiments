@@ -2,7 +2,6 @@
 instructionList = Array();
 NumArray = Array();
 myActualList = Array();
-var printVar = 1;
 main();
 
 function main (){
@@ -74,10 +73,7 @@ function replace(){
     }
 
     //grey out previously selected
-    old = document.getElementsByClassName("swapping");
-    for (var i = 0; i < old.length; i++) {
-        old[i].className = "prev";
-    }
+
     old = document.getElementsByClassName("selected");
     for (var i = 0; i < old.length; i++) {
         old[i].className = "prev";
@@ -89,7 +85,7 @@ function replace(){
 
 
     //make swap visible
-    myActualList[indx1].innerHTML = "<li class = swapping >" + NumArray[indx2] + "</li>";
+    myActualList[indx1].innerHTML = "<li class = prev >" + NumArray[indx2] + "</li>";
     myActualList[indx2].innerHTML = "<li class = selected >" + NumArray[indx1] + "</li>";
  
     //swap num array elements
