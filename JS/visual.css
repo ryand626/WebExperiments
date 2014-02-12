@@ -32,7 +32,7 @@ h2{
 	text-shadow: 2px 2px  4px rgb(0,0,0);
 
 	background-color: rgb(150,150,255);
-	background: -webkit-linear-gradient(left, rgb(10,25,50), rgba(10,25,50,.8));
+	background: -webkit-linear-gradient(right, rgb(25,25,25), rgba(25,25,25,.9));
 
 	overflow: hidden;
 }
