@@ -7,7 +7,7 @@ body{
 	padding: 0px;
 
 
-	background: -webkit-linear-gradient(bottom, rgb(240,240,240), rgba(240,240,240,.5));
+	background-color: rgb(200,200,200);
 }
 
 h1{
@@ -19,20 +19,20 @@ h1{
 	text-shadow: 2px 2px 4px rgb(0,50,100);
 	text-align: center;
 
-	background: -webkit-linear-gradient(bottom, rgb(150,200,255), rgb(100,150,200));
+	background: -webkit-linear-gradient(top, rgb(10,10,10), rgba(10,10,10,.85));
 
 }
 h2{
 	margin: 40px;
 	margin-bottom: 0px;
-	padding: 5px;
+	padding: 10px;
 
 	font-size: 40px;
 	color: rgb(255,255,255);
 	text-shadow: 2px 2px  4px rgb(0,0,0);
 
 	background-color: rgb(150,150,255);
-	background: -webkit-linear-gradient(left, rgb(150,150,255), rgba(150,150,255,.5));
+	background: -webkit-linear-gradient(left, rgb(10,25,50), rgba(10,25,50,.8));
 
 	overflow: hidden;
 }
@@ -45,44 +45,36 @@ h2{
 
 
 .Numbers{
-	color: black;
 	margin: 0px;
 }
 .prev{
 	background-color: rgb(255,225,200);
 	padding-left: 10px;
-	color: black;
 }
 .selected{
 	background-color: rgb(200,255,200);
 	padding-left: 5px;
-	color: black;
 
 	box-shadow: 0px 0px 5px rgb(100,100,100);
 }
 
 /*Merge Sort*/
 .MergeSort{
-	
-	color: black;
 	margin: 0px;
 }
 .MSprev{
 	background-color: rgb(255,200,200);
 	padding-left: 10px;
-	color: black;
 }
 .MSselected{
 	background-color: rgb(200,255,255);
 	padding-left: 5px;
-	color: black;
 
 	box-shadow: 0px 0px 50px rgb(100,100,100);
 }
 .MSselected2{
 	background-color: rgb(200,200,255);
 	padding-left: 5px;
-	color: black;
 
 	box-shadow: 0px 0px 5px rgb(100,100,100);
 }
@@ -92,12 +84,12 @@ ul{
 	margin-top: 0px;
 	padding: 25px;
 	background-color: rgb(220,220,220);
-	//box-shadow: 10px 10px 25px rgb(100,100,100);
+	box-shadow: 10px 10px 25px rgb(100,100,100);
 	list-style-type: none;
 
-	border-color: rgb(200,200,200);
+	border-color: rgb(150,150,150);
 	border-style: solid;
-	border-width: 1px;
+	border-width: 2px;
 
 	color: rgb(50,50,50);
 }
