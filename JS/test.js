@@ -16,11 +16,11 @@ main();
 function main (){
     document.write("<div>");
         document.write("<div class = sep>");
-            list = start(64,20,"InsertionSort");
+            list = start(32,20,"InsertionSort");
             document.write("<h1>Original Unsorted List</h1>");            
             print(list);
             insertionSort(list);
-            document.write("<h1>Sorted List?</h1>");
+            document.write("<h1>Sorted List</h1>");
             print(list);
 
             document.write("<h1>Order of Swaps!</h1>");
@@ -35,7 +35,7 @@ function main (){
         document.write("</div>");
 
         document.write("<div class = sep>");
-            MS = start(64,20,"MergeSort");
+            MS = start(32,20,"MergeSort");
             document.write("<h1>Original Unsorted List</h1>");
             print(MS);
             MergeSort(MS, 0, MS.length-1);
@@ -112,9 +112,6 @@ function ISreplace(){
     if (ISinstructionList.length == 0){
         return;
     }
-
-
-   // console.log(NumArray.toString());
 
     //grey out previously selected
 
@@ -205,17 +202,16 @@ function MSreplace(){
         old[i].className = "MSprev";
     }
 
-    //find swap indexes from instruction list
-    var indx1 = MSinstructionList.shift();
-    var indx2 = MSinstructionList.shift();
+    // find swap index from instruction list
+    var index = MSinstructionList.shift();
+    // find element to put in at that index
+    var elem = MSinstructionList.shift();
 
 
     //make swap visible
-    MSmyActualList[indx1].innerHTML = "<li class = MSselected2>" + indx2 + "</li>";
-    //MSmyActualList[indx2].innerHTML = "<li class = MSselected >" + MSNumArray[indx1] + "</li>";
- 
-    //swap num array elements
-    //var temp = MSNumArray[indx1];
-    MSNumArray[indx1] = MSNumArray[indx2];
-    //MSNumArray[indx2] = temp;
+    MSmyActualList[index].innerHTML = "<li class = MSselected2>" + elem + "</li>";
+
+    //swap data
+    MSNumArray[index] = MSNumArray[elem];
+
 }
