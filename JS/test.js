@@ -1,4 +1,5 @@
 //Example JS
+
 //Insertion Sort Globals
 ISinstructionList = Array();
 NumArray = Array();
@@ -12,55 +13,63 @@ MSmyActualList = Array();
 //Main Function
 main();
 
-
 function main (){
+    document.write("<h1>Sorting Algorithms</h1>");
+
     document.write("<div>");
+        // INSERTION SORT
         document.write("<div class = sep>");
             list = start(32,20,"InsertionSort");
-            document.write("<h1>Original Unsorted List</h1>");            
+            document.write("<h2>Original Unsorted List</h2>");            
             print(list);
             insertionSort(list);
-            document.write("<h1>Sorted List</h1>");
+            document.write("<h2>Sorted List</h2>");
             print(list);
 
-            document.write("<h1>Order of Swaps!</h1>");
-            print(ISinstructionList);
-
-            console.log("THE ACTUAL FUCK?: " + NumArray.toString());
-
-            // NumArray = getNums("InsertionSort");
+            document.write("<h2>Order of Swaps!</h2>");
+            ISIL = Array();
+            for (var i = 0; i < ISinstructionList.length; i+=2) {
+                ISIL.push("element " + ISinstructionList[i] + " is swapped with  element " + ISinstructionList[i + 1]);
+            }
+            print(ISIL);
 
             myActualList = document.getElementsByClassName("InsertionSort");
             setInterval(ISreplace,50);
         document.write("</div>");
 
+        // MERGE SORT
         document.write("<div class = sep>");
             MS = start(32,20,"MergeSort");
-            document.write("<h1>Original Unsorted List</h1>");
+            document.write("<h2>Original Unsorted List</h2>");
             print(MS);
             MergeSort(MS, 0, MS.length-1);
-            document.write("<h1>Sorted List</h1>");
+            document.write("<h2>Sorted List</h2>");
             print(MS);
 
-            document.write("<h1>Instruction List</h1>");
-            print(MSinstructionList);
+            document.write("<h2>Instruction List</h2>");
+            MSIL = Array();
+            for (var i = 0; i < MSinstructionList.length; i+=2) {
+                MSIL.push("element " + MSinstructionList[i] + " is given the value " + MSinstructionList[i + 1]);
+            }
+            print(MSIL);
 
             MSNumArray = getNums("MergeSort");
-
             MSmyActualList = document.getElementsByClassName("MergeSort")
             setInterval(MSreplace,50);
-
         document.write("</div>");
+        
     document.write("</div>");
 
 }
 
+// initializes a sort by making a random list of numbers with a specific 
+// class ID, size, and maximum value
 function start (size,max,ID) {
     myList = Array();
     for (var i = 0; i < size; i++) {
         myList[i] = Math.floor(Math.random()*max);
     }
-    document.write("<h1>" + ID + "</h1>");
+    document.write("<h2>" + ID + "</h2>");
     document.write("<ul>");
     for (var i = 0; i < myList.length; i++) {
         document.write("<li class = " + ID + ">" + myList[i] + "</li>");
@@ -69,6 +78,7 @@ function start (size,max,ID) {
     return myList;
 }
 
+// prints out an unordered list of the elements of myList
 function print (myList) {
     document.write("<ul>");
     for (var i = 0; i < myList.length; i++) {
@@ -96,6 +106,8 @@ function insertionSort (myList) {
     NumArray = getNums("InsertionSort");
 }
 
+// returns the numerical values of the elements in the
+// unordered list of class name identifier
 function getNums (identifier) {
     myList = document.getElementsByClassName(identifier);
     myNumArray = Array();
@@ -106,30 +118,28 @@ function getNums (identifier) {
 }
 
 function ISreplace(){
-
-
-    //stop if done
+    // stop if done
     if (ISinstructionList.length == 0){
         return;
     }
 
-    //grey out previously selected
+    // grey out previously selected
 
     old = document.getElementsByClassName("selected");
     for (var i = 0; i < old.length; i++) {
         old[i].className = "prev";
     }
 
-    //find swap indexes from instruction list
+    // find swap indexes from instruction list
     var indx1 = ISinstructionList.shift();
     var indx2 = ISinstructionList.shift();
 
 
-    //make swap visible
+    // make swap visible
     myActualList[indx1].innerHTML = "<li class = prev >" + NumArray[indx2] + "</li>";
     myActualList[indx2].innerHTML = "<li class = selected >" + NumArray[indx1] + "</li>";
  
-    //swap num array elements
+    // swap num array elements
     var temp = NumArray[indx1];
     NumArray[indx1] = NumArray[indx2];
     NumArray[indx2] = temp;
@@ -157,18 +167,21 @@ function Merge(myList, start, mid, end){
     var A1 = Array();
     var A2 = Array();
 
+    // cut array into two smaller, sorted arrays
     for (var i = 0; i < len1; i++) {
         A1[i] = myList[i + start]; 
     }
     for (var i = 0; i < len2; i++) {
         A2[i] = myList[i + mid + 1]; 
     }
+    // add sentinels
     A1.push(Infinity);
     A2.push(Infinity);
 
     var iter1 = 0;
     var iter2 = 0;
 
+    // merge the two sorted lists
     for (var i = start; i <= end; i++) {
         if (A1[iter1] < A2[iter2]) {
             myList[i] = A1[iter1];
@@ -186,13 +199,12 @@ function Merge(myList, start, mid, end){
 }
 
 function MSreplace(){
-    //stop if done
+    // stop if done
     if (MSinstructionList.length == 0){
         return;
     }
 
-    //change color of previously selected
-
+    // change color of previously selected
     old = document.getElementsByClassName("MSselected");
     for (var i = 0; i < old.length; i++) {
         old[i].className = "MSprev";
@@ -207,11 +219,9 @@ function MSreplace(){
     // find element to put in at that index
     var elem = MSinstructionList.shift();
 
-
-    //make swap visible
+    // make swap visible
     MSmyActualList[index].innerHTML = "<li class = MSselected2>" + elem + "</li>";
 
-    //swap data
+    // swap data
     MSNumArray[index] = MSNumArray[elem];
-
 }
