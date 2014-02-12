@@ -16,7 +16,7 @@ main();
 function main (){
     document.write("<div>");
         document.write("<div class = sep>");
-            list = start(16,20,"InsertionSort");
+            list = start(64,20,"InsertionSort");
             document.write("<h1>Original Unsorted List</h1>");            
             print(list);
             insertionSort(list);
@@ -35,7 +35,7 @@ function main (){
         document.write("</div>");
 
         document.write("<div class = sep>");
-            MS = start(16,20,"MergeSort");
+            MS = start(64,20,"MergeSort");
             document.write("<h1>Original Unsorted List</h1>");
             print(MS);
             MergeSort(MS, 0, MS.length-1);
@@ -114,7 +114,7 @@ function ISreplace(){
     }
 
 
-    console.log(NumArray.toString());
+   // console.log(NumArray.toString());
 
     //grey out previously selected
 
