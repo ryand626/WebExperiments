@@ -43,6 +43,35 @@ h1{
 	box-shadow: 0px 0px 5px rgb(100,100,100);
 }
 
+/*Merge Sort*/
+.MergeSort{
+	
+	color: black;
+	/*padding-left: 10px;*/
+	margin: 0px;
+}
+
+.MSprev{
+	background-color: rgb(255,200,200);
+	padding-left: 10px;
+	color: black;
+}
+
+.MSselected{
+	background-color: rgb(200,255,255);
+	padding-left: 5px;
+	color: black;
+
+	box-shadow: 0px 0px 5px rgb(100,100,100);
+}
+.MSselected2{
+	background-color: rgb(200,200,255);
+	padding-left: 5px;
+	color: black;
+
+	box-shadow: 0px 0px 5px rgb(100,100,100);
+}
+
 
 ul{
 	margin: 50px;
