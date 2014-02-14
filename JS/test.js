@@ -207,12 +207,14 @@ function Merge(myList, start, mid, end){
         if (A1[iter1] < A2[iter2]) {
             myList[i] = A1[iter1];
             iter1++;
+
             MSinstructionList.push(i);
             MSinstructionList.push(A1[iter1 - 1]);
         }  
         else {
             myList[i] = A2[iter2];
             iter2++;
+            
             MSinstructionList.push(i);
             MSinstructionList.push(A2[iter2 - 1]);
         }
