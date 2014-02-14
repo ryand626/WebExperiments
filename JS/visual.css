@@ -43,34 +43,53 @@ h2{
 	float: left;
 }
 
-
+/*
 .Numbers{
+
+	background-color: rgba(100,225,150,.9);
+	margin: 0px;
+
+}
+*/
+.InsertionSort{
+
+	background-color: rgba(100,225,150,.9);
+	
+	padding-left: 10px;
 	margin: 0px;
 }
 .prev{
-	background-color: rgb(255,225,200);
+	background-color: rgba(100,225,150,.9);
 	padding-left: 10px;
 }
 .selected{
-	background-color: rgb(200,255,200);
-	padding-left: 5px;
-
+	background-color: rgba(100,255,150,.8);
+	padding-left: 0px;
+	margin: 0px;
 	box-shadow: 0px 0px 5px rgb(100,100,100);
 }
 
 /*Merge Sort*/
 .MergeSort{
+	/*background-color: rgba(100,200,255,.9);*/
+
+	/*border-color: rgb(100,150,200);
+	border-style: solid;
+	border-width: 1px;
+*/
+	background-color: rgba(100,200,255,.9);
 	margin: 0px;
 }
 .MSprev{
-	background-color: rgb(255,200,200);
+	background-color: rgba(100,200,255,.9);
 	padding-left: 10px;
 }
 .MSselected{
-	background-color: rgb(200,255,255);
-	padding-left: 5px;
+	background-color: rgb(100,200,255);
+	padding-left: 0px;
+	margin: 0px;
 
-	box-shadow: 0px 0px 50px rgb(100,100,100);
+	box-shadow: 0px 0px 50px rgb(100,255,100);
 }
 .MSselected2{
 	background-color: rgb(200,200,255);

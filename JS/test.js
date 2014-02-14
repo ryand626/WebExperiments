@@ -34,6 +34,7 @@ function main (){
             print(ISIL);
 
             myActualList = document.getElementsByClassName("InsertionSort");
+            colorize("InsertionSort");
             setInterval(ISreplace,50);
         document.write("</div>");
 
@@ -55,6 +56,7 @@ function main (){
 
             MSNumArray = getNums("MergeSort");
             MSmyActualList = document.getElementsByClassName("MergeSort")
+            colorize("MergeSort");
             setInterval(MSreplace,50);
         document.write("</div>");
         
@@ -76,6 +78,21 @@ function start (size,max,ID) {
     }
     document.write("</ul>");
     return myList;
+}
+
+function colorize (ID) {
+    // ARE YOU NOT PLEASED JB?
+    colorMeList = document.getElementsByClassName(ID);
+    console.log("INNER HTML " + colorMeList[0].innerHTML.toString());
+    for (var i = 0; i < colorMeList.length; i++) {
+        
+
+       // colorMeList[i].style.color = "transparent";// = "transparent";
+        //colorMeList[i].style.background = "blue";
+        colorMeList[i].style.width = colorMeList[i].textContent * 5 + "%";
+        colorMeList[i].className = ID;
+
+    }
 }
 
 // prints out an unordered list of the elements of myList
@@ -138,6 +155,10 @@ function ISreplace(){
     // make swap visible
     myActualList[indx1].innerHTML = "<li class = prev >" + NumArray[indx2] + "</li>";
     myActualList[indx2].innerHTML = "<li class = selected >" + NumArray[indx1] + "</li>";
+    myActualList[indx1].style.width = NumArray[indx2] * 5 + "%";
+    myActualList[indx2].style.width = NumArray[indx1] * 5 + "%";
+    myActualList[indx1].style.color = "transparent";
+    myActualList[indx2].style.color = "transparent";
  
     // swap num array elements
     var temp = NumArray[indx1];
@@ -221,6 +242,8 @@ function MSreplace(){
 
     // make swap visible
     MSmyActualList[index].innerHTML = "<li class = MSselected2>" + elem + "</li>";
+    MSmyActualList[index].style.width = elem * 5 + "%";
+    MSmyActualList[index].style.color = "transparent";
 
     // swap data
     MSNumArray[index] = MSNumArray[elem];
